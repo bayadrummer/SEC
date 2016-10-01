@@ -1,0 +1,10 @@
+*.project
+*.prefs
+delivery/target/sec-1.0.0-SNAPSHOT.tar.gz
+*.gz
+gui/gui-sec/.classpath
+*.jsdtscope
+gui/gui-sec/.settings/org.eclipse.wst.jsdt.ui.superType.name
+*.container
+gui/gui-sec/.settings/org.eclipse.wst.common.project.facet.core.xml
+*.component
