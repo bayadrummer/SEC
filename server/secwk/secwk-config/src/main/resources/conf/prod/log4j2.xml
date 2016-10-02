@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="FATAL" monitorInterval="30">
+	<Properties>
+		<Property name="emitterName">${module.wk.code}</Property>
+		<Property name="emitterVersion">${project.version}</Property>
+		<Property name="emitterCodeService">${application.code}</Property>
+	</Properties>
+	<Appenders>
+		<RollingFile name="rollingFileAppender" fileName="/var/opt/data/flat/rsyslog/failover/erable-logger.log"
+			filePattern="/var/opt/data/flat/rsyslog/failover/erable-logger-%d{yyyy-MM-dd}.log" ignoreExceptions="false">
+			<PatternLayout>
+				<Pattern>%m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+			</Policies>
+		</RollingFile>
+		<Syslog name="syslogAppender" host="localhost" port="10514" format="RFC5424" mdcId="mdc" protocol="TCP" appName="erable-logger-java" ignoreExceptions="false" newLine="true" reconnectionDelayMillis="500"/>
+
+		<!-- Failover appender is set to firstly log in rsyslog and then, if an error occurs, it logs to a file which is watched by rsyslog file input module -->
+		<Failover name="failoverAppender" primary="syslogAppender" ignoreExceptions="false" retryIntervalSeconds="5">
+			<Failovers>
+				<AppenderRef ref="rollingFileAppender" />
+			</Failovers>
+		</Failover>
+	</Appenders>
+	<Loggers>
+		<Root level="info">
+			<AppenderRef ref="failoverAppender" />
+		</Root>
+	</Loggers>
+</Configuration>
