@@ -4,16 +4,12 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-    <display-name>statbiwk</display-name>
+    <display-name>secwk</display-name>
     
     <listener>
 		<listener-class>org.apache.logging.log4j.web.Log4jServletContextListener</listener-class>
 	</listener>
 
-    <context-param>
-        <param-name>log4jConfiguration</param-name>
-        <param-value>file://${env:ERABLE_CONFIG_DIR}/${env:ERABLE_SERVICE}wk-log4j2.xml</param-value>
-    </context-param>
 
     <servlet>
         <servlet-name>Jersey RESTful Application</servlet-name>
@@ -21,7 +17,7 @@
         </servlet-class>
         <init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
-            <param-value>com.erable.server
+            <param-value>bzh.fucktheduck.sec.servlet
             </param-value>
         </init-param>
     </servlet>
