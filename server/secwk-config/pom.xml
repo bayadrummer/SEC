@@ -6,11 +6,11 @@
 
     <artifactId>secwk-config</artifactId>
     <packaging>pom</packaging>
-    <name>sec::server::secwk::secwk-config</name>
+    <name>sec::server::secwk-config</name>
 
     <parent>
         <groupId>bzh.fucktheduck.sec</groupId>
-        <artifactId>secwk</artifactId>
+        <artifactId>server</artifactId>
         <version>1.0.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>

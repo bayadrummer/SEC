@@ -5,14 +5,14 @@
 
 	<parent>
 		<groupId>bzh.fucktheduck.sec</groupId>
-		<artifactId>secwk</artifactId>
+		<artifactId>server</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<artifactId>secwk-appli</artifactId>
 	<packaging>war</packaging>
-	<name>sec::server::secwk::secwk-appli</name>
+	<name>sec::server::secwk-appli</name>
 
 	<properties>
 		<root.basedir>${basedir}/../../..</root.basedir>
