@@ -9,7 +9,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>bzh.fucktheduck.sec</groupId>
+    <groupId>bzh.fucktheduck.sec.gui</groupId>
     <artifactId>gui</artifactId>
     <packaging>pom</packaging>
     <name>sec::gui</name>
