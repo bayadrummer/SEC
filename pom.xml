@@ -207,12 +207,18 @@
 
 			<!-- Tomcat -->
 			<dependency>
+				<!-- The javax.servlet package contains a number of classes and interfaces that describe and define
+ 				the contracts between a servlet class and the runtime environment provided for an instance of such a 
+				class by a conforming servlet container. -->
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>servlet-api</artifactId>
 				<version>3.0.20100224</version>
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
+				<!-- The javax.servlet package contains a number of classes and interfaces that describe and define 
+				the contracts between a servlet class and the runtime environment provided for an instance of such a 
+				class by a conforming servlet container. -->
 				<groupId>tomcat</groupId>
 				<artifactId>javax.servlet</artifactId>
 				<version>5.1.12</version>
@@ -222,6 +228,9 @@
 			<!-- Jersey -->
 
 			<dependency>
+				<!-- Jersey provides it’s own API that extend the JAX-RS toolkit with additional features and
+ 				utilities to further simplify RESTful service and client development. 
+				A priori utile pour tout le mapping (anotations) des servlets.-->
 				<groupId>org.glassfish.jersey.core</groupId>
 				<artifactId>jersey-server</artifactId>
 				<version>${org.glassfish.jersey.version}</version>
@@ -255,12 +264,15 @@
 
 			<!-- Jackson -->
 			<dependency>
+				<!-- Core Jackson abstractions, basic JSON streaming API implementation -->
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-core</artifactId>
 				<version>${jackson-jaxrs-json-provider.version}</version>
 			</dependency>
 
 			<dependency>
+				<!--  RESTEasy, the JBoss JAX-RS implementation, 1.x and 2.x has a great client API that 
+				helps you to easily consume REST web services in a JAX-RS way.  -->
 				<groupId>org.jboss.resteasy</groupId>
 				<artifactId>resteasy-client</artifactId>
 				<version>${resteasy-jaxr.version}</version>
@@ -285,6 +297,7 @@
 			</dependency>
 
 			<dependency>
+				<!-- Utile ? -->
 				<groupId>com.fasterxml.jackson.datatype</groupId>
 				<artifactId>jackson-datatype-joda</artifactId>
 				<version>${jackson-jaxrs-json-provider.version}</version>
@@ -297,6 +310,7 @@
 			</dependency>
 
 			<dependency>
+				<!-- Format utilisé dans le transfert des données des requêtes HTTP -->
 				<groupId>org.json</groupId>
 				<artifactId>json</artifactId>
 				<version>20140107</version>
