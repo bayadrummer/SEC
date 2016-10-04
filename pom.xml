@@ -344,6 +344,8 @@
 	<build>
 		<pluginManagement>
 			<plugins>
+				<!-- Suppression de ce plugin, auparavant utilisé pour générer les .classpath Eclipse car ce dernier
+				ne pouvait pas intégrer les projets maven. Aujourd'hui, le plugin m2e prend le relais.
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-eclipse-plugin</artifactId>
@@ -359,8 +361,11 @@
 						<wtpapplicationxml>true</wtpapplicationxml>
 						<wtpContextName>${project.artifactId}</wtpContextName>
 					</configuration>
-				</plugin>
+				</plugin> -->
 
+				<!-- Plugin auparavant utilisé pour regrouper la sortie du projet ainsi que ses dépendances, 
+				des modules, la documentation du site et d'autres fichiers en une seule archive distribuable.
+				Non utile pour nous pour le moment.
 				<plugin>
 					<artifactId>maven-assembly-plugin</artifactId>
 					<version>${assembly-plugin.version}</version>
@@ -368,39 +373,44 @@
 						<descriptor>src/assembly/assembly_descriptor.xml</descriptor>
 						<appendAssemblyId>false</appendAssemblyId>
 					</configuration>
-				</plugin>
-
+				</plugin> -->
+				
+				<!-- Peut être un plugin intéressant pour nos montées de version. -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-release-plugin</artifactId>
 					<version>${release-plugin.version}</version>
 				</plugin>
 
+				<!-- Pas certain de la nécessité des ce plugin. Maintenant géré nativement par maven. -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-clean-plugin</artifactId>
 					<version>${clean-plugin.version}</version>
 				</plugin>
 
+				<!-- Pas certain de la nécessité des ce plugin. Maintenant géré nativement par maven. -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-deploy-plugin</artifactId>
 					<version>${deploy-plugin.version}</version>
 				</plugin>
 
+				<!-- Pas certain de la nécessité des ce plugin. Maintenant géré nativement par maven. -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-install-plugin</artifactId>
 					<version>${install-plugin.version}</version>
 				</plugin>
 
+				<!-- Pas certain de la nécessité des ce plugin. Maintenant géré nativement par maven. -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-site-plugin</artifactId>
 					<version>${site-plugin.version}</version>
 				</plugin>
 
-
+				<!-- Pas certain de la nécessité des ce plugin. Maintenant géré nativement par maven. -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-antrun-plugin</artifactId>
@@ -424,6 +434,8 @@
 					<version>${json-schema-validator-plugin.version}</version>
 				</plugin>
 
+				<!-- Utilisé notamment pour corriger les problèmes maven rencontrés par Eclipse. 
+				Peut aussi être utilisé pour ajouter des sources générées, ... -->
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>build-helper-maven-plugin</artifactId>
@@ -442,6 +454,7 @@
 					</configuration>
 				</plugin>
 
+				<!-- Couverture de code des tests JUnit. Est-ce vraiment indispensable pour le moment ? -->
 				<plugin>
 					<groupId>org.jacoco</groupId>
 					<artifactId>jacoco-maven-plugin</artifactId>
@@ -461,7 +474,8 @@
 					</executions>
 				</plugin>
 
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.
+				Elément ajouté par Ecplise pour supprimer les erreurs de couverture de lifecycle maven non maitrisées par Eclipse.-->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
