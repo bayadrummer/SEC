@@ -111,6 +111,7 @@
 			<!-- Project dependencies -->
 
 			<dependency>
+				<!-- JUnit is a unit testing framework for Java, created by Erich Gamma and Kent Beck. -->
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
 				<version>${junit.version}</version>
@@ -118,6 +119,7 @@
 			</dependency>
 
 			<dependency>
+				<!-- Logging -->
 				<groupId>org.apache.logging.log4j</groupId>
 				<artifactId>log4j-web</artifactId>
 				<version>${log4j.version}</version>
@@ -130,6 +132,9 @@
 			</dependency>
 
 			<dependency>
+				<!-- The Simple Logging Facade for Java (SLF4J) serves as a simple facade or abstraction 
+				for various logging frameworks, such as java.util.logging, logback and log4j.
+				SLF4J allows the end-user to plug in the desired logging framework at deployment time. -->
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-simple</artifactId>
 				<version>1.7.21</version>
@@ -142,36 +147,58 @@
 			</dependency>
 
 			<dependency>
+				<!-- The Commons HttpClient project is now end of life, and is no longer being developed. 
+				It has been replaced by the Apache HttpComponents project in its HttpClient and HttpCore modules, 
+				which offer better performance and more flexibility. -->
 				<groupId>commons-httpclient</groupId>
 				<artifactId>commons-httpclient</artifactId>
 				<version>${commons-httpclient.version}</version>
 			</dependency>
 
 			<dependency>
+				<!-- Peut être non utile : outil de validation de données via fichier de conf XML -->
 				<groupId>commons-validator</groupId>
 				<artifactId>commons-validator</artifactId>
 				<version>${commons-validator.version}</version>
 			</dependency>
 
 			<dependency>
+				<!-- The Java Collections Framework was a major addition in JDK 1.2. 
+				It added many powerful data structures that accelerate development of most significant Java applications.
+				Since that time it has become the recognised standard for collection handling in Java -->
 				<groupId>org.apache.commons</groupId>
 				<artifactId>commons-collections4</artifactId>
 				<version>${commons-collections4.version}</version>
 			</dependency>
 
 			<dependency>
+				<!-- Commons IO is a library of utilities to assist with developing IO functionality.
+				There are six main areas included:
+				Utility classes - with static methods to perform common tasks
+				Input - useful Input Stream and Reader implementations
+				Output - useful Output Stream and Writer implementations
+				Filters - various implementations of file filters
+				Comparators - various implementations of java.util.Comparator for files
+				File Monitor - a component for monitoring file system events -->
 				<groupId>commons-io</groupId>
 				<artifactId>commons-io</artifactId>
 				<version>${commons-io.version}</version>
 			</dependency>
 
 			<dependency>
+				<!-- The standard Java libraries fail to provide enough methods for manipulation of its core classes. 
+				Apache Commons Lang provides these extra methods (notably String manipulation methods, 
+				basic numerical methods, object reflection, concurrency, creation and serialization and 
+				System properties). -->
 				<groupId>org.apache.commons</groupId>
 				<artifactId>commons-lang3</artifactId>
 				<version>${commons-apache.version}</version>
 			</dependency>
 
 			<dependency>
+				<!-- The Commons HttpClient project is now end of life, and is no longer being developed. 
+				It has been replaced by the Apache HttpComponents project in its HttpClient and HttpCore modules, 
+				which offer better performance and more flexibility. -->
 				<groupId>org.apache.httpcomponents</groupId>
 				<artifactId>httpclient</artifactId>
 				<version>${apache-http.client}</version>
@@ -179,7 +206,7 @@
 
 
 			<!-- Tomcat -->
-<dependency>
+			<dependency>
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>servlet-api</artifactId>
 				<version>3.0.20100224</version>
@@ -390,6 +417,9 @@
 				</plugin>
 
 				<plugin>
+					<!-- The Surefire Plugin is used during the test phase of the build lifecycle 
+					to execute the unit tests of an application. It generates reports in two different 
+					file formats: Plain text files (*.txt) ; XML files (*.xml) -->
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>${maven.surefire.plugin.version}</version>
