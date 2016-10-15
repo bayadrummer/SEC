@@ -1,4 +1,4 @@
-package bzh.fucktheduck.sec;
+package bzh.fucktheduck.sec.servlet;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;

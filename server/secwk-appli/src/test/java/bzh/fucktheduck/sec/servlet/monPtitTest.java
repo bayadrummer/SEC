@@ -1,4 +1,4 @@
-package bzh.fucktheduck.sec;
+package bzh.fucktheduck.sec.servlet;
 
 import org.junit.Test;
 

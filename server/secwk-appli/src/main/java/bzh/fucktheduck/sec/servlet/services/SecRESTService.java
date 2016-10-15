@@ -1,4 +1,4 @@
-package bzh.fucktheduck.sec.servlet;
+package bzh.fucktheduck.sec.servlet.services;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
