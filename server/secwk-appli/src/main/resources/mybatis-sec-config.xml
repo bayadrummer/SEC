@@ -4,6 +4,10 @@
 
 	<!-- Définir un fichier de conf plus générique par la suite -->
 	<properties resource="mybatis-sec-config.properties" />
+	
+	<settings>
+		<setting name="logImpl" value="SLF4J" />
+	</settings>
 
 	<!-- Définition de l'environnement -->
 	<environments default="development">
@@ -22,12 +26,11 @@
 
 	</environments>
 
-	<!-- <typeAliases>
-		<typeAlias alias="Member" type="bzh.fucktheduck.sec.persistance.bean.Member" />
-	</typeAliases> -->
+	<!-- <typeAliases> <typeAlias alias="Member" type="bzh.fucktheduck.sec.persistance.bean.Member" 
+		/> </typeAliases> -->
 
 	<mappers>
-		<mapper resource="db-mapping/MemberMapper.xml" />
+		<mapper class="bzh.fucktheduck.sec.persistance.mapper.IMemberMapper" />
 	</mappers>
 
 </configuration>

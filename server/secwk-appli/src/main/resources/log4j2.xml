@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xml>
-<Configuration>
+<Configuration level="error">
 	<Properties>
 		<Property name="emitterName">sec</Property>
 		<Property name="emitterVersion">0.0.1</Property>
@@ -33,7 +33,7 @@
 
 	</Appenders>
 	<Loggers>
-		<Root level="debug">
+		<Root level="trace">
 			<AppenderRef ref="ConsoleAppender" />
 		</Root>
 		<Logger level="trace" name="filer">

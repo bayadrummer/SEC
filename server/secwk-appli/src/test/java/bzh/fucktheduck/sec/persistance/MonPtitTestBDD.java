@@ -1,26 +1,35 @@
 package bzh.fucktheduck.sec.persistance;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import bzh.fucktheduck.sec.persistance.bean.Member;
 import bzh.fucktheduck.sec.persistance.dao.MemberDAO;
-import bzh.fucktheduck.sec.persistance.util.SessionUtil;
 
-public class monPtitTestBDD {
+public class MonPtitTestBDD {
 	
-	Logger logger = LoggerFactory.getLogger(monPtitTestBDD.class);
+	Logger logger = LoggerFactory.getLogger(MonPtitTestBDD.class);
 	
 	private static MemberDAO memberDAO = MemberDAO.getInstance();
 
+	@Test
+	public void testInsert() {
+		
+		logger.info("début du test");
+		
+		Member m = new Member("insertedlogin" + Math.random()*10, "insertedpassword");
+		
+		memberDAO.insertMember(m);
+		
+	}
+	
     @Test
-    public void testage() {
+    public void testSelect() {
     	
     	List<Member> membersList = null;
     	
@@ -33,7 +42,17 @@ public class monPtitTestBDD {
     	catch (Exception e) {
     		logger.error(e.getMessage());
     	}
-    	
     	assertEquals(membersList.size(), 2);
+    	
+    	Member m = null;
+    	try {
+    		m = memberDAO.findById(2);
+    		logger.info("id : " + m.getId() + ", login : " + m.getLogin() + ", password : " + m.getPassword());
+    	}
+    	catch (Exception e) {
+    		logger.error(e.getMessage());
+    	}
+    	assertEquals(m.getLogin(), "logindeux");
     }
+    
 }

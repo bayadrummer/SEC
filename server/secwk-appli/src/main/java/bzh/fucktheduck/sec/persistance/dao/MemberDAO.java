@@ -3,42 +3,64 @@ package bzh.fucktheduck.sec.persistance.dao;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import bzh.fucktheduck.sec.persistance.bean.Member;
+import bzh.fucktheduck.sec.persistance.mapper.IMemberMapper;
 import bzh.fucktheduck.sec.persistance.util.SessionUtil;
 
-public class MemberDAO {
+public class MemberDAO extends BaseDAO {
 
-	private SqlSession session;
-	
 	private static MemberDAO memberDAO = null;
 	
+	private static Logger logger = LoggerFactory.getLogger(Member.class); 
+
 	public MemberDAO() {
 	}
-	
+
 	public static MemberDAO getInstance() {
 		if (null == memberDAO) {
 			memberDAO = new MemberDAO();
 		}
 		return memberDAO;
 	}
-	
-	private void beginSession() {
-		session = SessionUtil.getSession();
-	}
-	
-	private void closeSession() {
-		session.close();
-	}
-	
+
 	public List<Member> getAllMembers() {
-		
-		beginSession();
-		
-		List<Member> result = session.selectList("selectAllMembers");
-		
-		closeSession();
-		
+
+		SqlSession session = SessionUtil.getSession();
+		IMemberMapper mapper = session.getMapper(IMemberMapper.class);
+
+		List<Member> result = mapper.getAll();
+
+		session.close();
+
 		return result;
+	}
+
+	public Member findById(int id) {
+
+		SqlSession session = SessionUtil.getSession();
+		IMemberMapper mapper = session.getMapper(IMemberMapper.class);
+
+		Member result = mapper.getById(id);
+
+		session.close();
+
+		return result;
+	}
+	
+	public void insertMember(Member member) {
+		
+		SqlSession session = SessionUtil.getSession();
+		IMemberMapper mapper = session.getMapper(IMemberMapper.class);
+		
+		logger.debug("Insertion member {}", member);
+		
+		mapper.insert(member);
+		
+		session.commit();
+		
+		session.close();
 	}
 }

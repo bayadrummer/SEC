@@ -3,14 +3,33 @@
 
 <mapper namespace="bzh.fucktheduck.sec.persistance.dao.MemberDAO">
 
-	<resultMap type="bzh.fucktheduck.sec.persistance.bean.Member" id="memberResultMap">
+	<resultMap type="bzh.fucktheduck.sec.persistance.bean.Member"
+		id="memberResultMap">
 		<id property="id" column="id" />
 		<result property="login" column="login" />
 		<result property="password" column="password" />
 	</resultMap>
-	
+
+	<insert id="insertMember" parameterType="bzh.fucktheduck.sec.persistance.bean.Member"
+		keyProperty="id">
+		INSERT INTO member (
+		id, login, password
+		) VALUES (
+		#{id}, #{login}, #{password}
+		)
+
+		<selectKey resultType="int" keyProperty="id" order="AFTER">
+			SELECT LAST_INSERT_ID();
+		</selectKey>
+	</insert>
+
 	<select id="selectAllMembers" resultMap="memberResultMap">
 		SELECT * FROM member m
+	</select>
+
+	<select id="findById" parameterType="int" resultMap="memberResultMap">
+		select *
+		from member where id = #{id}
 	</select>
 
 </mapper>
